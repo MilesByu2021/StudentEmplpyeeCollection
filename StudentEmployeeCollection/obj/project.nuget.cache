@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T7y8gaNpqwE0SfbkkawNNXyabN5YmKCIRBoAsF28Due9qtM9jPBuJ6qOE1HezF1JD7RNqHYQQmpKHt3p3L7N8w==",
+  "dgSpecHash": "jyYEumpPsNHq74SfVByZz8DAE7m+tplEyo00eHXbT8KsTOHIiWQSeq1ze4OZTrkQEMEl/IEK89HjJdMK1qw+ow==",
   "success": true,
-  "projectFilePath": "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
+  "projectFilePath": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
   "expectedPackageFiles": [
     "/Users/milesleung/.nuget/packages/microsoft.bcl.asyncinterfaces/1.1.1/microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "/Users/milesleung/.nuget/packages/microsoft.bcl.hashcode/1.1.1/microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
