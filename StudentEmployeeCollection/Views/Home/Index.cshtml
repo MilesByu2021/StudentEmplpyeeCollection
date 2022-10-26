@@ -5,3 +5,76 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 </div>
+
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            @*Student Table*@
+            <th>BYU ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>International</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Semester</th>
+            <th>Year</th>
+            <th>Program Year</th>
+            <th>Phone</th>
+            <th>BYU Name</th>
+            <th>Pay Grad Turition</th>
+            <th>Notes</th>
+
+            @*StudentPositionType Table*@
+            <th>Position ID</th>
+            <th>Position Type</th>
+            <th>Pay Rate</th>
+            <th>Name Change Comp</th>
+            <th>Employee Record</th>
+            <th>Hired Date</th>
+            <th>Expected Hours</th>
+            <th>Last Pay Increase</th>
+            <th>Pay Increase Amount</th>
+            <th>Increase Date</th>
+            <th>Terminated</th>
+            <th>Termination Date</th>
+            <th>Authorization Work Permit Recieved</th>
+            <th>Authorization Work Permit Mail Sent Date</th>
+            <th>Class Code</th>
+
+            @*Studnet/Supervisor Table*@
+            <th>Supervisor ID</th>
+            <th>Supervisor First Name</th>
+            <th>Supervisor Last Name</th>
+
+            @*Qualtrics Send Table*@
+            <th>Qualtircs Send ID </th>
+            <th>Qualtircs URL</th>
+            <th>Submitted E-Form</th>
+            <th>Submission Date</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @*@foreach (Bowlers b in Model)
+        {
+            <tr>
+                <td>@b.BowlerFirstName</td>
+                <td>@b.BowlerMiddleInit</td>
+                <td>@b.BowlerLastName</td>
+                <td>@b.BowlerAddress</td>
+                <td>@b.BowlerCity</td>
+                <td>@b.BowlerState</td>
+                <td>@b.BowlerZip</td>
+                <td>@b.BowlerPhoneNumber</td>
+                <td><a asp-controller="Home" asp-action="Details" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Details</a></td>
+                <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Delete</a></td>
+            </tr>
+        }*@
+
+
+    </tbody>
+</table>
