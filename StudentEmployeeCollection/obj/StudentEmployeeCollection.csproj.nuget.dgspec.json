@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj": {}
+    "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj": {}
   },
   "projects": {
-    "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj": {
+    "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
+        "projectUniqueName": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
         "projectName": "StudentEmployeeCollection",
-        "projectPath": "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
+        "projectPath": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
         "packagesPath": "/Users/milesleung/.nuget/packages/",
-        "outputPath": "/Users/milesleung/Desktop/IS_Senior/IS 405/StudentEmployeeCollection/StudentEmployeeCollection/obj/",
+        "outputPath": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/milesleung/.config/NuGet/NuGet.Config"
