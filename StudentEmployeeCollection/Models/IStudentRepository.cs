@@ -1,10 +1,16 @@
 ﻿using System;
+using System.Linq;
+
 namespace StudentEmployeeCollection.Models
 {
-    public class IStudentRepository
+    public interface IStudentRepository
     {
-        public IStudentRepository()
-        {
-        }
+        IQueryable<Student> Student { get; }
+
+        public void CreateStudent(Student s);
+
+        public void SaveStudent(Student s);
+
+        public void DeleteStudent(Student s);
     }
 }
