@@ -11,11 +11,11 @@ namespace StudentEmployeeCollection.Controllers
 {
     public class HomeController : Controller
     {
-        private IStudentEmpRepository _repoStudentEmp { get; set; }
+        private IStudentRepository _repoStudent { get; set; }
 
-        public HomeController(IStudentEmpRepository tempStudentEmp)
+        public HomeController(IStudentRepository tempStudent)
         {
-            _repoStudentEmp = tempStudentEmp;
+            _repoStudent = tempStudent;
         }
 
         //Read Student

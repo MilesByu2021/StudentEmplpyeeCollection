@@ -112,3 +112,7 @@
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.pdb
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.genruntimeconfig.cache
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/MySqlConnector.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll

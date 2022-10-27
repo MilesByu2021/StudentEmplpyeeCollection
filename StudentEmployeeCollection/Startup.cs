@@ -26,7 +26,7 @@ namespace StudentEmployeeCollection
         {
             services.AddControllersWithViews();
 
-            services.AddScoped<IStudentEmpRepository, EFStudentEmpRepository>();
+            services.AddScoped<IStudentRepository, EFStudentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
