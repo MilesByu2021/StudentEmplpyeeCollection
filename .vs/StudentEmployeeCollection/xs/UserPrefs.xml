@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{C590020D-D233-4AB5-82DC-4ABC275650A1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StudentEmployeeCollection/Startup.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StudentEmployeeCollection/Models/Student.cs">
     <Files>
       <File FileName="StudentEmployeeCollection/Controllers/HomeController.cs" Line="18" Column="40" />
-      <File FileName="StudentEmployeeCollection/Startup.cs" Line="38" Column="6" />
+      <File FileName="StudentEmployeeCollection/Models/Student.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -11,12 +11,13 @@
             <Node name="StudentEmployeeCollection" expanded="True">
               <Node name="Dependencies" expanded="True" />
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="Student.cs" selected="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
               </Node>
-              <Node name="Startup.cs" selected="True" />
             </Node>
           </Node>
         </State>
