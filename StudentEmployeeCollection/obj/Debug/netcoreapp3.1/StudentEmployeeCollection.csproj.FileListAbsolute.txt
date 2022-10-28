@@ -81,9 +81,12 @@
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Logging.Abstractions.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Options.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Microsoft.Extensions.Primitives.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/MySqlConnector.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/System.Collections.Immutable.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/System.Diagnostics.DiagnosticSource.dll
-/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.csproj.AssemblyReference.cache
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.GeneratedMSBuildEditorConfig.editorconfig
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.AssemblyInfoInputs.cache
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.AssemblyInfo.cs
@@ -112,7 +115,3 @@
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.dll
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.pdb
 /Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.genruntimeconfig.cache
-/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/MySqlConnector.dll
-/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Newtonsoft.Json.dll
-/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.EntityFrameworkCore.MySql.dll
-/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/bin/Debug/netcoreapp3.1/Pomelo.JsonObject.dll

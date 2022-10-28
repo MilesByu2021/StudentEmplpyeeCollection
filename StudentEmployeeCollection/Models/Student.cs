@@ -45,11 +45,13 @@ namespace StudentEmployeeCollection.Models
 
         public QualtricsSent QualtricsSent { get; set; }
 
-        //[ForeignKey("BYUID")]
+        [ForeignKey("BYUID")]
 
-        //public StudentPositionType StudentPositionType { get; set; }
+        public StudentPositionType StudentPositionType { get; set; }
 
-        //public Student_Supervisor Student_Supervisor { get; set; }
+        [ForeignKey("BYUID")]
+
+        public Student_Supervisor Student_Supervisor { get; set; }
 
     }
 }

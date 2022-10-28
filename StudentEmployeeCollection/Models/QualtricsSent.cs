@@ -10,5 +10,7 @@ namespace StudentEmployeeCollection.Models
         public int QualtricsSentID { get; set; }
 
         public string QualtricsURL { get; set; }
+
+        public Student Student { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using StudentEmployeeCollection.Models;
 
@@ -48,8 +49,12 @@ namespace StudentEmployeeCollection.Controllers
         //Read Student
         public IActionResult Index()
         {
-            var student = _repoStudent.Student.ToList();
-
+            var student = _repoStudent.Student
+                .Include("Student_Supervisor")
+                .Include("QualtricsSent")
+                //.Include("StudentPositionType")
+                .ToList();
+                
             return View(student);
         }
 
