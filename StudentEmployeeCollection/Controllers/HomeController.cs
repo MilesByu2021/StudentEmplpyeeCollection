@@ -44,6 +44,7 @@ namespace StudentEmployeeCollection.Controllers
             _repoStudentPositionType = tempSPT;
 
             _repoSupervisor = tempSupervisor;
+
         }
 
         //Read Student
@@ -54,15 +55,27 @@ namespace StudentEmployeeCollection.Controllers
                 .Include("QualtricsSent")
                 //.Include("StudentPositionType")
                 .ToList();
-                
+
             return View(student);
         }
 
         //Create StudentlClient.MySqlException has been thrown
+        [HttpGet]
         public IActionResult Create()
         {
-            return View("Create");
+            //ViewBag.Students = Student.StudentPositionType.ToList();
+
+            return View();
         }
+
+        [HttpPost]
+        public IActionResult Create(StudentEmployeeDbContext s)
+        {
+            //Student.Add(s);
+            //Student.SaveChanges();
+
+            return View("Index");
+        }   
 
         //Details Student
         public IActionResult Details()

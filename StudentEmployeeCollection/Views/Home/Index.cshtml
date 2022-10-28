@@ -6,8 +6,9 @@
     <h1 class="display-4">Welcome</h1>
 </div>
 
-@*@model List<Student>*@
-@model StudentEmployeeDbContext
+@model List<Student>
+
+@*@model List<StudentEmployeeDbContext>*@
 
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
@@ -77,29 +78,29 @@
                 <td>@s.PayGradTuition</td>
                 <td>@s.Notes </td>
 
-                <td>@PositionType.PositionTypeID</td>
-                <td>@PositionType.PositionType</td>
-                <td>@PositionType.PayRate</td>
-                <td>@PositionType.NameChangeComp</td>
+                <td>@s.PositionType.PositionTypeID</td>
+                <td>@s.PositionType.PositionTypes</td>
+                <td>@s.PositionType.PayRate</td>
+                <td>@s.PositionType.NameChangeComp</td>
 
-                <td>@StudentPositionType.EmplRec</td>
-                <td>@StudentPositionType.HireDate</td>
-                <td>@StudentPositionType.ExpectedHours</td>
-                <td>@StudentPositionType.LastPayIncrease</td>
-                <td>@StudentPositionType.PayIncreaseAmt</td>
-                <td>@StudentPositionType.IncreaseDate</td>
-                <td>@StudentPositionType.Terminated</td>
-                <td>@StudentPositionType.TerminatedDate</td>
-                <td>@StudentPositionType.AuthToWorkReceive</td>
-                <td>@StudentPositionType.AuthToWorkMailSentDate</td>
-                <td>@StudentPositionType.ClassCode</td>
+                <td>@s.StudentPositionType.EmplRec</td>
+                <td>@s.StudentPositionType.HireDate</td>
+                <td>@s.StudentPositionType.ExpectedHours</td>
+                <td>@s.StudentPositionType.LastPayIncrease</td>
+                <td>@s.StudentPositionType.PayIncreaseAmt</td>
+                <td>@s.StudentPositionType.IncreaseDate</td>
+                <td>@s.StudentPositionType.Terminated</td>
+                <td>@s.StudentPositionType.TerminationDate</td>
+                <td>@s.StudentPositionType.AuthToWorkReceive</td>
+                <td>@s.StudentPositionType.AuthToWorkMailSentDate</td>
+                <td>@s.StudentPositionType.ClassCode</td>
 
-                <td>@Student_Supervisor.SupervisorID</td>
-                <td>@Supervisor.FirstName</td>
-                <td>@Supervisor.LastName</td>
+                <td>@s.Student_Supervisor.SupervisorID</td>
+                <td>@s.Supervisor.FirstName</td>
+                <td>@s.Supervisor.LastName</td>
 
                 <td>@s.QualtricsSentID</td>
-                <td>@QualtricsSent.QualtricsURL</td>
+                <td>@s.QualtricsSent.QualtricsURL</td>
                 <td>@s.SubmittedEForm </td>
                 <td>@s.SubmissionDate </td>
 

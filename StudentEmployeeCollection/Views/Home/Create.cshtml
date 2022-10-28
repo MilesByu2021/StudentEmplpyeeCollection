@@ -2,7 +2,7 @@
     ViewData["Title"] = "Add Student";
 }
 
-@model StudentEmployeeDbContext
+@model Student
 
 
 
@@ -13,135 +13,135 @@
 
     <div class="mb-2">
         <label name="BYUID" class="form-label">BYU ID</label>
-        <input type="number" class="form-control" name="BYUID">
+        <input asp-for="BYUID" type="number" class="form-control" name="BYUID">
     </div>
     <div class="mb-2">
         <label name="FirstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" name="FirstName">
+        <input asp-for="FirstName" type="text" class="form-control" name="FirstName">
     </div>
     <div class="mb-2">
         <label name="LastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" name="LastName">
+        <input asp-for="LastName" type="text" class="form-control" name="LastName">
     </div>
     <div class="mb-2">
         <label name="International" class="form-label">International</label>
-        <input type="text" class="form-control" name="International">
+        <input asp-for="International" type="text" class="form-control" name="International">
     </div>
     <div class="mb-2">
         <label name="Gender" class="form-label">Gender</label>
-        <input type="text" class="form-control" name="Gender">
+        <input asp-for="Gender" type="text" class="form-control" name="Gender">
     </div>
     <div class="mb-2">
         <label name="EmailAddress" class="form-label">Email Address</label>
-        <input type="text" class="form-control" name="EmailAddress">
+        <input asp-for="EmailAddress" type="text" class="form-control" name="EmailAddress">
     </div>
     <div class="mb-2">
         <label name="Semester" class="form-label">Semester</label>
-        <input type="text" class="form-control" name="Semester">
+        <input asp-for="Semester" type="text" class="form-control" name="Semester">
     </div>
     <div class="mb-2">
         <label name="Year" class="form-label">Year</label>
-        <input type="number" class="form-control" name="Year">
+        <input asp-for="Year" type="number" class="form-control" name="Year">
     </div>
     <div class="mb-2">
         <label name="ProgramYear" class="form-label">Program Year</label>
-        <input type="text" class="form-control" name="ProgramYear">
+        <input asp-for="ProgramYear" type="text" class="form-control" name="ProgramYear">
     </div>
     <div class="mb-2">
         <label name="Phone" class="form-label">Phone</label>
-        <input type="text" class="form-control" name="Phone">
+        <input asp-for="Phone" type="text" class="form-control" name="Phone">
     </div>
     <div class="mb-2">
         <label name="BYUName" class="form-label">BYU Name</label>
-        <input type="text" class="form-control" name="BYUName">
+        <input asp-for="BYUName" type="text" class="form-control" name="BYUName">
     </div>
     <div class="mb-2">
         <label name="PayGradTuition" class="form-label">Pay Grad Tuition</label>
-        <input type="number" class="form-control" name="PayGradTuition">
+        <input asp-for="PayGradTuition" type="number" class="form-control" name="PayGradTuition">
     </div>
     <div class="mb-2">
         <label name="Notes" class="form-label">Notes</label>
-        <input type="text" class="form-control" name="Notes">
+        <input asp-for="Notes" type="text" class="form-control" name="Notes">
     </div>
     <div class="mb-2">
         <label name="PositionType" class="form-label">Position Type</label>
-        <input type="text" class="form-control" name="PositionType">
+        <input asp-for="StudentPositionType.PositionType" type="text" class="form-control" name="PositionType">
     </div>
     <div class="mb-2">
         <label name="PayRate" class="form-label">Pay Rate</label>
-        <input type="text" class="form-control" name="PayRate">
+        <input asp-for="PositionType.PayRate" type="text" class="form-control" name="PayRate">
     </div>
     <div class="mb-2">
         <label name="Semester" class="form-label">Name Changed Comp</label>
-        <input type="text" class="form-control" name="Semester">
+        <input asp-for="PositionType.NameChangeComp" type="text" class="form-control" name="Semester">
     </div>
     <div class="mb-2">
         <label name="EmplRec" class="form-label">Employee Record</label>
-        <input type="number" class="form-control" name="EmplRec">
+        <input asp-for="StudentPositionType.EmplRec" type="number" class="form-control" name="EmplRec">
     </div>
     <div class="mb-2">
         <label name="HireDate" class="form-label">Hire Date</label>
-        <input type="text" class="form-control" name="HireDate">
+        <input asp-for="StudentPositionType.HireDate" type="text" class="form-control" name="HireDate">
     </div>
     <div class="mb-2">
         <label name="ExpectedHours" class="form-label">Expected Hours</label>
-        <input type="number" class="form-control" name="ExpectedHours">
+        <input asp-for="StudentPositionType.ExpectedHours" type="number" class="form-control" name="ExpectedHours">
     </div>
     <div class="mb-2">
         <label name="LastPayIncrease" class="form-label">Last Pay Increase</label>
-        <input type="date" class="form-control" name="LastPayIncrease">
+        <input asp-for="StudentPositionType.LastPayIncrease" type="date" class="form-control" name="LastPayIncrease">
     </div>
     <div class="mb-2">
         <label name="PayIncreaseAmt" class="form-label">Pay Increase Amount</label>
-        <input type="number" class="form-control" name="PayIncreaseAmt">
+        <input asp-for="StudentPositionType.PayIncreaseAmt" type="number" class="form-control" name="PayIncreaseAmt">
     </div>
     <div class="mb-2">
         <label name="IncreaseDate" class="form-label">Increase Date</label>
-        <input type="date" class="form-control" name="IncreaseDate">
+        <input asp-for="StudentPositionType.IncreaseDate" type="date" class="form-control" name="IncreaseDate">
     </div>
     <div class="mb-2">
         <label name="Terminated" class="form-label">Terminated</label>
-        <input type="text" class="form-control" name="Terminated">
+        <input asp-for="StudentPositionType.Terminated" type="text" class="form-control" name="Terminated">
     </div>
     <div class="mb-2">
-        <label name="TerminatedDate" class="form-label">Terminated Date</label>
-        <input type="date" class="form-control" name="TerminatedDate">
+        <label name="TerminationDate" class="form-label">Terminated Date</label>
+        <input asp-for="StudentPositionType.TerminationDate" type="date" class="form-control" name="TerminationDate">
     </div>
     <div class="mb-2">
         <label name="AuthToWorkReceive" class="form-label">Authorization Work Permit Received</label>
-        <input type="text" class="form-control" name="AuthToWorkReceive">
+        <input asp-for="StudentPositionType.AuthToWorkReceive" type="text" class="form-control" name="AuthToWorkReceive">
     </div>
     <div class="mb-2">
         <label name="AuthToWorkMailSentDat" class="form-label">Authorization Work Permit Mail Sent Date</label>
-        <input type="date" class="form-control" name="AuthToWorkMailSentDat">
+        <input asp-for="StudentPositionType.AuthToWorkMailSentDate" type="date" class="form-control" name="AuthToWorkMailSentDat">
     </div>
     <div class="mb-2">
         <label name="ClassCode" class="form-label">Class Code</label>
-        <input type="text" class="form-control" name="ClassCode">
+        <input asp-for="StudentPositionType.ClassCode" type="text" class="form-control" name="ClassCode">
     </div>
     <div class="mb-2">
         <label name="SupervisorFirstName" class="form-label">Supervisor First Name</label>
-        <input type="text" class="form-control" name="SupervisorFirstName">
+        <input asp-for="Supervisor.FirstName" type="text" class="form-control" name="SupervisorFirstName">
     </div>
     <div class="mb-2">
         <label name="SupervisorLastName" class="form-label">Supervisor Last Name</label>
-        <input type="text" class="form-control" name="SupervisorLastName">
+        <input asp-for="Supervisor.LastName" type="text" class="form-control" name="SupervisorLastName">
     </div>
     <div class="mb-2">
         <label name="QualtricsSentID" class="form-label">Qualtrics Survey ID</label>
-        <input type="number" class="form-control" name="QualtricsSentID">
+        <input asp-for="QualtricsSentID" type="number" class="form-control" name="QualtricsSentID">
     </div>
     <div class="mb-2">
         <label name="QualtricsURL" class="form-label">Qualtrics URL</label>
-        <input type="text" class="form-control" name="QualtricsURL">
+        <input asp-for="QualtricsSent.QualtricsURL" type="text" class="form-control" name="QualtricsURL">
     </div>
     <div class="mb-2">
         <label name="SubmittedEForm" class="form-label">Submitted E-Form</label>
-        <input type="text" class="form-control" name="SubmittedEForm">
+        <input asp-for="SubmittedEForm" type="text" class="form-control" name="SubmittedEForm">
     </div>
     <div class="mb-2">
         <label name="SubmissionDate" class="form-label">Submission Date</label>
-        <input type="date" class="form-control" name="SubmissionDate">
+        <input asp-for="SubmissionDate" type="date" class="form-control" name="SubmissionDate">
     </div>
 
     <div class="mb-2">

@@ -53,5 +53,8 @@ namespace StudentEmployeeCollection.Models
 
         public Student_Supervisor Student_Supervisor { get; set; }
 
+        public PositionType PositionType { get; set; }
+        public Supervisor Supervisor { get; set; }
+
     }
 }
