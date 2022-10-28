@@ -6,7 +6,8 @@
     <h1 class="display-4">Welcome</h1>
 </div>
 
-@model List<Student>   
+@*@model List<Student>*@
+@model StudentEmployeeDbContext
 
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
@@ -64,19 +65,50 @@
             <tr>
                 <td>@s.BYUID</td>
                 <td>@s.FirstName </td>
-                <td>@s.QualtricsSent.QualtricsURL</td>
-                <td>@s.Student_Supervisor.SupervisorID </td>
-                @*<td>@s.QualtricsSent.QualtricsURL</td>*@
-                @*<td>@b.BowlerMiddleInit</td>
-                <td>@b.BowlerLastName</td>
-                <td>@b.BowlerAddress</td>
-                <td>@b.BowlerCity</td>
-                <td>@b.BowlerState</td>
-                <td>@b.BowlerZip</td>
-                <td>@b.BowlerPhoneNumber</td>*@
-                @*<td><a asp-controller="Home" asp-action="Details" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Details</a></td>
-                <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Delete</a></td>*@
+                <td>@s.LastName </td>
+                <td>@s.International </td>
+                <td>@s.Gender </td>
+                <td>@s.EmailAddress</td>
+                <td>@s.Semester</td>
+                <td>@s.Year </td>
+                <td>@s.ProgramYear</td>
+                <td>@s.Phone </td>
+                <td>@s.BYUName </td>
+                <td>@s.PayGradTuition</td>
+                <td>@s.Notes </td>
+
+                <td>@PositionType.PositionTypeID</td>
+                <td>@PositionType.PositionType</td>
+                <td>@PositionType.PayRate</td>
+                <td>@PositionType.NameChangeComp</td>
+
+                <td>@StudentPositionType.EmplRec</td>
+                <td>@StudentPositionType.HireDate</td>
+                <td>@StudentPositionType.ExpectedHours</td>
+                <td>@StudentPositionType.LastPayIncrease</td>
+                <td>@StudentPositionType.PayIncreaseAmt</td>
+                <td>@StudentPositionType.IncreaseDate</td>
+                <td>@StudentPositionType.Terminated</td>
+                <td>@StudentPositionType.TerminatedDate</td>
+                <td>@StudentPositionType.AuthToWorkReceive</td>
+                <td>@StudentPositionType.AuthToWorkMailSentDate</td>
+                <td>@StudentPositionType.ClassCode</td>
+
+                <td>@Student_Supervisor.SupervisorID</td>
+                <td>@Supervisor.FirstName</td>
+                <td>@Supervisor.LastName</td>
+
+                <td>@s.QualtricsSentID</td>
+                <td>@QualtricsSent.QualtricsURL</td>
+                <td>@s.SubmittedEForm </td>
+                <td>@s.SubmissionDate </td>
+
+                <td>@s.SubmittedEForm </td>
+                <td>@s.SubmissionDate </td>
+
+            
+
+                <td><a asp-controller="Home" asp-action="Edit" class="btn btn-info">Edit</a></td>
             </tr>
         }
 
