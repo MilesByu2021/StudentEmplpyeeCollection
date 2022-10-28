@@ -6,6 +6,7 @@
     <h1 class="display-4">Welcome</h1>
 </div>
 
+@model List<Student>   
 
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
@@ -58,22 +59,23 @@
 
     <tbody>
 
-        @*@foreach (Bowlers b in Model)
+        @foreach (Student s in Model)
         {
             <tr>
-                <td>@b.BowlerFirstName</td>
-                <td>@b.BowlerMiddleInit</td>
+                <td>@s.BYUID</td>
+                <td>@s.FirstName </td>
+                @*<td>@b.BowlerMiddleInit</td>
                 <td>@b.BowlerLastName</td>
                 <td>@b.BowlerAddress</td>
                 <td>@b.BowlerCity</td>
                 <td>@b.BowlerState</td>
                 <td>@b.BowlerZip</td>
-                <td>@b.BowlerPhoneNumber</td>
-                <td><a asp-controller="Home" asp-action="Details" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Details</a></td>
+                <td>@b.BowlerPhoneNumber</td>*@
+                @*<td><a asp-controller="Home" asp-action="Details" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Details</a></td>
                 <td><a asp-controller="Home" asp-action="Edit" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Delete</a></td>
+                <td><a asp-controller="Home" asp-action="Delete" asp-route-bowlerid="@b.BowlerID" class="btn btn-info">Delete</a></td>*@
             </tr>
-        }*@
+        }
 
 
     </tbody>
