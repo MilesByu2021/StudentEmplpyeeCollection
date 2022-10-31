@@ -1,0 +1,67 @@
+@{
+    ViewData["Title"] = "Add Position to Student";
+}
+
+@model Position
+
+<h3>Add Position to @ViewBag.Student.FirstName @ViewBag.Student.LastName</h3>
+
+<form method="POST" asp-controller="Home" asp-action="AddPositionToStudent">
+    <div class="mb-2">
+        <label name="PositionTypeID" class="form-label">Position Type</label>
+        <select asp-for="PositionTypeID" class='form-control' asp-items="@ViewBag.PositionTypes"></select> 
+    </div>
+    <div class="mb-2">
+        <label name="SupervisorID" class="form-label">Supervisor</label>
+        <select asp-for="SupervisorID" class='form-control' asp-items="@ViewBag.Supervisors"></select> 
+    </div>
+    <div class="mb-2">
+        <label name="EmplRec" class="form-label">Employee Record No</label>
+        <select asp-for="EmplRec" class='form-control'>
+            <option value='0'>0</option>
+            <option value='1'>1</option>
+            <option value='2'>2</option>
+            <option value='3'>3</option>
+        </select> 
+    </div>
+    <div class="mb-2">
+        <label name="HireDate" class="form-label">Hire Date</label>
+        <input asp-for="HireDate" type="date" class="form-control" name="HireDate">
+    </div>
+    <div class="mb-2">
+        <label name="ExpectedHours" class="form-label">Expected Hours</label>
+        <input asp-for="ExpectedHours" type="number" class="form-control" name="ExpectedHours">
+    </div>
+    <div class="mb-2">
+        <label name="TerminationDate" class="form-label">Termination Date</label>
+        <input asp-for="TerminationDate" type="date" class="form-control" name="TerminationDate">
+    </div>
+    <div class="mb-2">
+        <label name="AuthToWorkReceive" class="form-label">Authorization To Work Received</label>
+        <input asp-for="AuthToWorkReceive" type="checkbox" class="form-control" name="AuthToWorkReceive">
+    </div>
+    <div class="mb-2">
+        <label name="AuthToWorkMailSentDate" class="form-label">Authorization To Work Email Sent Date</label>
+        <input asp-for="AuthToWorkMailSentDate" type="date" class="form-control" name="AuthToWorkMailSentDate">
+    </div>
+    <div class="mb-2">
+        <label name="ClassCode" class="form-label">Class Code</label>
+        <input asp-for="ClassCode" type="text" class="form-control" name="ClassCode">
+    </div>
+    <div class="mb-2">
+        <label name="QualtricsURL" class="form-label">Qualtrics URL</label>
+        <input asp-for="QualtricsURL" type="text" class="form-control" name="QualtricsURL">
+    </div>
+    <div class="mb-2">
+        <label name="PayRate" class="form-label">Pay Rate</label>
+        <input asp-for="PayRate" type="number" step="0.01" class="form-control" name="PayRate">
+    </div>
+    <div class="mb-2">
+        <input asp-for="BYUID" type="text" hidden value="@ViewBag.BYUID" class="form-control">
+    </div>
+    <div class="mb-2">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>
+<p>@Context.Request.RouteValues["byuid"]
+</p>

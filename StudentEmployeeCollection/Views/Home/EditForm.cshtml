@@ -1,5 +1,122 @@
 ﻿@{
-    ViewData["Title"] = "Edit Page";
+    ViewData["Title"] = "Edit Student";
 }
 
-<h1>Edit Page</h1>
+@model Student
+
+<h1>@Model.BYUName</h1>
+<form method="POST" asp-controller="Home" asp-action="EditForm">
+    <div class="mb-2">
+        <label name="BYUID" class="form-label">BYU ID</label>
+        <input readonly asp-for="BYUID" type="text" class="form-control" name="BYUID">
+    </div>
+    <div class="mb-2">
+        <label name="FirstName" class="form-label">First Name</label>
+        <input asp-for="FirstName" type="text" class="form-control" name="FirstName">
+    </div>
+    <div class="mb-2">
+        <label name="LastName" class="form-label">Last Name</label>
+        <input asp-for="LastName" type="text" class="form-control" name="LastName">
+    </div>
+    <div class="mb-2">
+        <label name="International" class="form-label">International</label>
+        <input asp-for="International" type="text" class="form-control" name="International">
+    </div>
+    <div class="mb-2">
+        <label name="Gender" class="form-label">Gender</label>
+        <input asp-for="Gender" type="text" class="form-control" name="Gender">
+    </div>
+    <div class="mb-2">
+        <label name="EmailAddress" class="form-label">Email Address</label>
+        <input asp-for="EmailAddress" type="text" class="form-control" name="EmailAddress">
+    </div>
+    <div class="mb-2">
+        <label name="Semester" class="form-label">Semester</label>
+        <input asp-for="Semester" type="text" class="form-control" name="Semester">
+    </div>
+    <div class="mb-2">
+        <label name="Year" class="form-label">Year</label>
+        <input asp-for="Year" type="number" class="form-control" name="Year">
+    </div>
+    <div class="mb-2">
+        <label name="ProgramYear" class="form-label">Program Year</label>
+        <input asp-for="ProgramYear" type="text" class="form-control" name="ProgramYear">
+    </div>
+    <div class="mb-2">
+        <label name="Phone" class="form-label">Phone</label>
+        <input asp-for="Phone" type="text" class="form-control" name="Phone">
+    </div>
+    <div class="mb-2">
+        <label name="BYUName" class="form-label">BYU Name</label>
+        <input asp-for="BYUName" type="text" class="form-control" name="BYUName">
+    </div>
+    <div class="mb-2">
+        <label name="PayGradTuition" class="form-label">Pay Grad Tuition</label>
+        <input asp-for="PayGradTuition" type="number" class="form-control" name="PayGradTuition">
+    </div>
+    <div class="mb-2">
+        <label name="Notes" class="form-label">Notes</label>
+        <input asp-for="Notes" type="text" class="form-control" name="Notes">
+    </div>
+    <div class="mb-2">
+        <label name="SubmittedEForm" class="form-label">Submitted E-Form</label>
+        <input asp-for="SubmittedEForm" type="text" class="form-control" name="SubmittedEForm">
+    </div>
+    <div class="mb-2">
+        <label name="SubmissionDate" class="form-label">Submission Date</label>
+        <input asp-for="SubmissionDate" type="date" class="form-control" name="SubmissionDate">
+    </div>
+
+    <div class="mb-2">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>
+
+<div class="mt-6">
+    <div class='d-flex align-items-center justify-content-between'>
+        <div>
+            <h3>Positions</h3>
+        </div>
+        <div>
+            <a class='btn btn-primary' asp-controller="Home" asp-action="AddPositionToStudent" asp-route-byuid="@Model.BYUID">Add Position</a>
+        </div>
+    </div>
+    <br/>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <td>Position ID</td>
+                <td>Position Type</td>
+                <td>Supervisor</td>
+                <td>Employee Record Number</td>
+                <td>Hire Date</td>
+                <td>Expected Hours</td>
+                <td>Termination Date</td>
+                <td>Authorization To Work Received</td>
+                <td>Authorization To Work Email Sent</td>
+                <td>Class Code</td>
+                <td>Qualtrics URL</td>
+                <td>Pay Rate</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Position p in Model.Positions)
+            {
+            <tr>
+                <td>@p.PositionID</td>
+                <td>@p.PositionType.PositionName</td>
+                <td>@p.Supervisor.FirstName @p.Supervisor.LastName</td>
+                <td>@p.EmplRec</td>
+                <td>@(p.HireDate.HasValue ? ((DateTime)p.HireDate).ToString("MM/dd/yyyy") : "")</td>
+                <td>@p.ExpectedHours</td>
+                <td>@(p.TerminationDate.HasValue ? ((DateTime)p.TerminationDate).ToString("MM/dd/yyyy") : "")</td>
+                <td>@p.AuthToWorkReceive</td>
+                <td>@(p.AuthToWorkMailSentDate.HasValue ? ((DateTime)p.AuthToWorkMailSentDate).ToString("MM/dd/yyyy") : "")</td>
+                <td>@p.ClassCode</td>
+                <td>@p.QualtricsURL</td>
+                <td>$@Math.Round(p.PayRate, 2)</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

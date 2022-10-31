@@ -8,12 +8,10 @@
 
 <h1>Add a Record</h1>
 
-<form method="POST" action="/Home/Create">
-
-
+<form method="POST" asp-controller="Home" asp-action="Create" class='form'>
     <div class="mb-2">
         <label name="BYUID" class="form-label">BYU ID</label>
-        <input asp-for="BYUID" type="number" class="form-control" name="BYUID">
+        <input asp-for="BYUID" type="text" class="form-control" name="BYUID">
     </div>
     <div class="mb-2">
         <label name="FirstName" class="form-label">First Name</label>
@@ -25,11 +23,14 @@
     </div>
     <div class="mb-2">
         <label name="International" class="form-label">International</label>
-        <input asp-for="International" type="text" class="form-control" name="International">
+        <input asp-for="International" type="checkbox" class="form-control" name="International">
     </div>
     <div class="mb-2">
         <label name="Gender" class="form-label">Gender</label>
-        <input asp-for="Gender" type="text" class="form-control" name="Gender">
+        <input type="radio" id="gender-male" asp-for="Gender" value="Male"/>
+        <label for="gender-male">Male</label>
+        <input type="radio" id="gender-female" asp-for="Gender" value="Female"/>
+        <label for="gender-female">Female</label>
     </div>
     <div class="mb-2">
         <label name="EmailAddress" class="form-label">Email Address</label>
@@ -57,87 +58,15 @@
     </div>
     <div class="mb-2">
         <label name="PayGradTuition" class="form-label">Pay Grad Tuition</label>
-        <input asp-for="PayGradTuition" type="number" class="form-control" name="PayGradTuition">
+        <input asp-for="PayGradTuition" type="checkbox" class="form-control" name="PayGradTuition">
     </div>
     <div class="mb-2">
         <label name="Notes" class="form-label">Notes</label>
         <input asp-for="Notes" type="text" class="form-control" name="Notes">
     </div>
     <div class="mb-2">
-        <label name="PositionType" class="form-label">Position Type</label>
-        <input asp-for="StudentPositionType.PositionType" type="text" class="form-control" name="PositionType">
-    </div>
-    <div class="mb-2">
-        <label name="PayRate" class="form-label">Pay Rate</label>
-        <input asp-for="PositionType.PayRate" type="text" class="form-control" name="PayRate">
-    </div>
-    <div class="mb-2">
-        <label name="Semester" class="form-label">Name Changed Comp</label>
-        <input asp-for="PositionType.NameChangeComp" type="text" class="form-control" name="Semester">
-    </div>
-    <div class="mb-2">
-        <label name="EmplRec" class="form-label">Employee Record</label>
-        <input asp-for="StudentPositionType.EmplRec" type="number" class="form-control" name="EmplRec">
-    </div>
-    <div class="mb-2">
-        <label name="HireDate" class="form-label">Hire Date</label>
-        <input asp-for="StudentPositionType.HireDate" type="text" class="form-control" name="HireDate">
-    </div>
-    <div class="mb-2">
-        <label name="ExpectedHours" class="form-label">Expected Hours</label>
-        <input asp-for="StudentPositionType.ExpectedHours" type="number" class="form-control" name="ExpectedHours">
-    </div>
-    <div class="mb-2">
-        <label name="LastPayIncrease" class="form-label">Last Pay Increase</label>
-        <input asp-for="StudentPositionType.LastPayIncrease" type="date" class="form-control" name="LastPayIncrease">
-    </div>
-    <div class="mb-2">
-        <label name="PayIncreaseAmt" class="form-label">Pay Increase Amount</label>
-        <input asp-for="StudentPositionType.PayIncreaseAmt" type="number" class="form-control" name="PayIncreaseAmt">
-    </div>
-    <div class="mb-2">
-        <label name="IncreaseDate" class="form-label">Increase Date</label>
-        <input asp-for="StudentPositionType.IncreaseDate" type="date" class="form-control" name="IncreaseDate">
-    </div>
-    <div class="mb-2">
-        <label name="Terminated" class="form-label">Terminated</label>
-        <input asp-for="StudentPositionType.Terminated" type="text" class="form-control" name="Terminated">
-    </div>
-    <div class="mb-2">
-        <label name="TerminationDate" class="form-label">Terminated Date</label>
-        <input asp-for="StudentPositionType.TerminationDate" type="date" class="form-control" name="TerminationDate">
-    </div>
-    <div class="mb-2">
-        <label name="AuthToWorkReceive" class="form-label">Authorization Work Permit Received</label>
-        <input asp-for="StudentPositionType.AuthToWorkReceive" type="text" class="form-control" name="AuthToWorkReceive">
-    </div>
-    <div class="mb-2">
-        <label name="AuthToWorkMailSentDat" class="form-label">Authorization Work Permit Mail Sent Date</label>
-        <input asp-for="StudentPositionType.AuthToWorkMailSentDate" type="date" class="form-control" name="AuthToWorkMailSentDat">
-    </div>
-    <div class="mb-2">
-        <label name="ClassCode" class="form-label">Class Code</label>
-        <input asp-for="StudentPositionType.ClassCode" type="text" class="form-control" name="ClassCode">
-    </div>
-    <div class="mb-2">
-        <label name="SupervisorFirstName" class="form-label">Supervisor First Name</label>
-        <input asp-for="Supervisor.FirstName" type="text" class="form-control" name="SupervisorFirstName">
-    </div>
-    <div class="mb-2">
-        <label name="SupervisorLastName" class="form-label">Supervisor Last Name</label>
-        <input asp-for="Supervisor.LastName" type="text" class="form-control" name="SupervisorLastName">
-    </div>
-    <div class="mb-2">
-        <label name="QualtricsSentID" class="form-label">Qualtrics Survey ID</label>
-        <input asp-for="QualtricsSentID" type="number" class="form-control" name="QualtricsSentID">
-    </div>
-    <div class="mb-2">
-        <label name="QualtricsURL" class="form-label">Qualtrics URL</label>
-        <input asp-for="QualtricsSent.QualtricsURL" type="text" class="form-control" name="QualtricsURL">
-    </div>
-    <div class="mb-2">
         <label name="SubmittedEForm" class="form-label">Submitted E-Form</label>
-        <input asp-for="SubmittedEForm" type="text" class="form-control" name="SubmittedEForm">
+        <input asp-for="SubmittedEForm" type="checkbox" class="form-control" name="SubmittedEForm">
     </div>
     <div class="mb-2">
         <label name="SubmissionDate" class="form-label">Submission Date</label>
