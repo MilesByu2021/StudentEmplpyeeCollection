@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using StudentEmployeeCollection.Models;
 
@@ -11,24 +12,70 @@ namespace StudentEmployeeCollection.Controllers
 {
     public class HomeController : Controller
     {
-        private IStudentEmpRepository _repoStudentEmp { get; set; }
+        private IStudentRepository _repoStudent { get; set; }
 
-        public HomeController(IStudentEmpRepository tempStudentEmp)
+        private IPositionTypeRepository _repoPositionType { get; set; }
+
+        private IQualtricsSentRepository _repoQualtricsSent { get; set; }
+
+        private IStudent_SupervisorRepository _repoStudentSupervisor { get; set; }
+
+        private IStudentPositionTypeRepository _repoStudentPositionType { get; set; }
+
+        private ISupervisorRepository _repoSupervisor { get; set; }
+
+        public HomeController(
+                                  IStudentRepository tempStudent,
+                                  IPositionTypeRepository tempPT,
+                                  IQualtricsSentRepository tempQS,
+                                  IStudent_SupervisorRepository tempSS,
+                                  IStudentPositionTypeRepository tempSPT,
+                                  ISupervisorRepository tempSupervisor
+                             )
         {
-            _repoStudentEmp = tempStudentEmp;
+            _repoStudent = tempStudent;
+
+            _repoPositionType = tempPT;
+
+            _repoQualtricsSent = tempQS;
+
+            _repoStudentSupervisor = tempSS;
+
+            _repoStudentPositionType = tempSPT;
+
+            _repoSupervisor = tempSupervisor;
+
         }
 
         //Read Student
         public IActionResult Index()
         {
+            var student = _repoStudent.Student
+                .Include("Student_Supervisor")
+                .Include("QualtricsSent")
+                //.Include("StudentPositionType")
+                .ToList();
+
+            return View(student);
+        }
+
+        //Create StudentlClient.MySqlException has been thrown
+        [HttpGet]
+        public IActionResult Create()
+        {
+            //ViewBag.Students = Student.StudentPositionType.ToList();
+
             return View();
         }
 
-        //Create Student
-        public IActionResult Create()
+        [HttpPost]
+        public IActionResult Create(StudentEmployeeDbContext s)
         {
-            return View("Create");
-        }
+            //Student.Add(s);
+            //Student.SaveChanges();
+
+            return View("Index");
+        }   
 
         //Details Student
         public IActionResult Details()

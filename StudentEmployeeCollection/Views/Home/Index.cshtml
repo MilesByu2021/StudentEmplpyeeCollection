@@ -5,3 +5,114 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
 </div>
+
+@model List<Student>
+
+@*@model List<StudentEmployeeDbContext>*@
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            @*Student Table*@
+            <th>BYU ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>International</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Semester</th>
+            <th>Year</th>
+            <th>Program Year</th>
+            <th>Phone</th>
+            <th>BYU Name</th>
+            <th>Pay Grad Turition</th>
+            <th>Notes</th>
+
+            @*StudentPositionType Table*@
+            <th>Position ID</th>
+            <th>Position Type</th>
+            <th>Pay Rate</th>
+            <th>Name Change Comp</th>
+            <th>Employee Record</th>
+            <th>Hired Date</th>
+            <th>Expected Hours</th>
+            <th>Last Pay Increase</th>
+            <th>Pay Increase Amount</th>
+            <th>Increase Date</th>
+            <th>Terminated</th>
+            <th>Termination Date</th>
+            <th>Authorization Work Permit Recieved</th>
+            <th>Authorization Work Permit Mail Sent Date</th>
+            <th>Class Code</th>
+
+            @*Studnet/Supervisor Table*@
+            <th>Supervisor ID</th>
+            <th>Supervisor First Name</th>
+            <th>Supervisor Last Name</th>
+
+            @*Qualtrics Send Table*@
+            <th>Qualtircs Send ID </th>
+            <th>Qualtircs URL</th>
+            <th>Submitted E-Form</th>
+            <th>Submission Date</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @foreach (Student s in Model)
+        {
+            <tr>
+                <td>@s.BYUID</td>
+                <td>@s.FirstName </td>
+                <td>@s.LastName </td>
+                <td>@s.International </td>
+                <td>@s.Gender </td>
+                <td>@s.EmailAddress</td>
+                <td>@s.Semester</td>
+                <td>@s.Year </td>
+                <td>@s.ProgramYear</td>
+                <td>@s.Phone </td>
+                <td>@s.BYUName </td>
+                <td>@s.PayGradTuition</td>
+                <td>@s.Notes </td>
+
+                <td>@s.PositionType.PositionTypeID</td>
+                <td>@s.PositionType.PositionTypes</td>
+                <td>@s.PositionType.PayRate</td>
+                <td>@s.PositionType.NameChangeComp</td>
+
+                <td>@s.StudentPositionType.EmplRec</td>
+                <td>@s.StudentPositionType.HireDate</td>
+                <td>@s.StudentPositionType.ExpectedHours</td>
+                <td>@s.StudentPositionType.LastPayIncrease</td>
+                <td>@s.StudentPositionType.PayIncreaseAmt</td>
+                <td>@s.StudentPositionType.IncreaseDate</td>
+                <td>@s.StudentPositionType.Terminated</td>
+                <td>@s.StudentPositionType.TerminationDate</td>
+                <td>@s.StudentPositionType.AuthToWorkReceive</td>
+                <td>@s.StudentPositionType.AuthToWorkMailSentDate</td>
+                <td>@s.StudentPositionType.ClassCode</td>
+
+                <td>@s.Student_Supervisor.SupervisorID</td>
+                <td>@s.Supervisor.FirstName</td>
+                <td>@s.Supervisor.LastName</td>
+
+                <td>@s.QualtricsSentID</td>
+                <td>@s.QualtricsSent.QualtricsURL</td>
+                <td>@s.SubmittedEForm </td>
+                <td>@s.SubmissionDate </td>
+
+                <td>@s.SubmittedEForm </td>
+                <td>@s.SubmissionDate </td>
+
+            
+
+                <td><a asp-controller="Home" asp-action="Edit" class="btn btn-info">Edit</a></td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>
