@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using StudentEmployeeCollection.Models;
@@ -13,68 +15,50 @@ namespace StudentEmployeeCollection.Controllers
     public class HomeController : Controller
     {
         private IStudentRepository _repoStudent { get; set; }
-
         private IPositionTypeRepository _repoPositionType { get; set; }
-
-        private IQualtricsSentRepository _repoQualtricsSent { get; set; }
-
-        private IStudent_SupervisorRepository _repoStudentSupervisor { get; set; }
-
-        private IStudentPositionTypeRepository _repoStudentPositionType { get; set; }
-
+        private IPositionRepository _repoPosition { get; set; }
         private ISupervisorRepository _repoSupervisor { get; set; }
+        private IPayIncreaseRepository _repoPayIncrease { get; set; }
 
         public HomeController(
                                   IStudentRepository tempStudent,
                                   IPositionTypeRepository tempPT,
-                                  IQualtricsSentRepository tempQS,
-                                  IStudent_SupervisorRepository tempSS,
-                                  IStudentPositionTypeRepository tempSPT,
-                                  ISupervisorRepository tempSupervisor
+                                  IPositionRepository tempP,
+                                  ISupervisorRepository tempSupervisor,
+                                  IPayIncreaseRepository tempPI
                              )
         {
             _repoStudent = tempStudent;
-
             _repoPositionType = tempPT;
-
-            _repoQualtricsSent = tempQS;
-
-            _repoStudentSupervisor = tempSS;
-
-            _repoStudentPositionType = tempSPT;
-
+            _repoPosition = tempP;
             _repoSupervisor = tempSupervisor;
-
+            _repoPayIncrease = tempPI;
         }
 
-        //Read Student
         public IActionResult Index()
         {
-            var student = _repoStudent.Student
-                .Include("Student_Supervisor")
-                .Include("QualtricsSent")
-                //.Include("StudentPositionType")
+            var students = _repoStudent.Student
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.Supervisor)
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.PositionType)
                 .ToList();
-
-            return View(student);
+            return View(students);
         }
 
-        //Create StudentlClient.MySqlException has been thrown
         [HttpGet]
         public IActionResult Create()
         {
-            //ViewBag.Students = Student.StudentPositionType.ToList();
+            //ViewBag.Students = Student.Position.ToList();
 
             return View();
         }
 
         [HttpPost]
-        public IActionResult Create(StudentEmployeeDbContext s)
+        public IActionResult Create([FromForm] Student s)
         {
-            //Student.Add(s);
-            //Student.SaveChanges();
-
-            return View("Index");
+            _repoStudent.CreateStudent(s);
+            return RedirectToAction("Index");
         }   
 
         //Details Student
@@ -84,9 +68,46 @@ namespace StudentEmployeeCollection.Controllers
         }
 
         //Edit Student
-        public IActionResult Edit()
+        public IActionResult EditForm(string byuid)
         {
-            return View("EditForm");
+            var student = _repoStudent.Student
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.Supervisor)
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.PositionType)
+                .FirstOrDefault(s => s.BYUID == byuid);
+            return View(student);
+        }
+
+        //Edit Student
+        [HttpPost]
+        public IActionResult EditForm([FromForm] Student s)
+        {
+            _repoStudent.SaveStudent(s);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult AddPositionToStudent(string byuid)
+        {
+            Student student = _repoStudent.Student.FirstOrDefault(s => s.BYUID == byuid);
+            ViewBag.Student = student;
+            List<SelectListItem> positionTypes = _repoPositionType.PositionType.Select(pt => new SelectListItem { Value = pt.PositionTypeID.ToString(), Text = pt.PositionName }).ToList();
+            ViewBag.PositionTypes = positionTypes;
+            List<SelectListItem> supervisors = _repoSupervisor.Supervisor.Select(s => new SelectListItem { Value = s.SupervisorID.ToString(), Text = s.FirstName + " " + s.LastName }).ToList();
+            ViewBag.Supervisors = supervisors;
+            ViewBag.BYUID = byuid;
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddPositionToStudent([FromForm] Position position)
+        {
+            _repoPosition.CreatePosition(position);
+            return RedirectToAction("EditForm", new RouteValueDictionary( 
+                    new { controller = "Home", action = "EditForm", byuid = position.BYUID } 
+                )
+            );
         }
 
         //Delete Student

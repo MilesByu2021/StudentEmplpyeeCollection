@@ -13,5 +13,22 @@ namespace StudentEmployeeCollection.Models
         }
 
         public IQueryable<Position> Position => _context.Position;
+
+        public void CreatePosition(Position position)
+        {
+            _context.Add(position);
+            _context.SaveChanges();
+        }
+
+        public void SavePosition(Position position)
+        {
+            _context.Update(position);
+            _context.SaveChanges();
+        }
+        public void DeletePosition(Position position)
+        {
+            _context.Remove(position);
+            _context.SaveChanges();
+        }
     }
 }

@@ -56,8 +56,8 @@
         <label name="PayRate" class="form-label">Pay Rate</label>
         <input asp-for="PayRate" type="number" step="0.01" class="form-control" name="PayRate">
     </div>
-     <div class="mb-2">
-        <input asp-for="BYUID" type="text" hidden value='@Context.Request.RouteValues["byuid"]' class="form-control" name="StudentID">
+    <div class="mb-2">
+        <input asp-for="BYUID" type="text" hidden value="@ViewBag.BYUID" class="form-control">
     </div>
     <div class="mb-2">
         <button type="submit" class="btn btn-success">Submit</button>

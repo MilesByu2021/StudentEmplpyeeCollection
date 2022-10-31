@@ -32,19 +32,12 @@ namespace StudentEmployeeCollection
                 option.UseMySql(Configuration["ConnectionStrings:StudentEmployeeDbConnection"]);
             }
             );
-
+            
             services.AddScoped<IStudentRepository, EFStudentRepository>();
-
-            services.AddScoped<IStudentPositionTypeRepository, EFStudentPositionTypeRepository>();
-
+            services.AddScoped<IPositionRepository, EFPositionRepository>();
             services.AddScoped<IPositionTypeRepository, EFPositionTypeRepository>();
-
-            services.AddScoped<IStudent_SupervisorRepository, EFStudent_SupervisorRepository>();
-
             services.AddScoped<ISupervisorRepository, EFSupervisorRepository>();
-
-            services.AddScoped<IQualtricsSentRepository, EFQualtricsSentRepository>();
-
+            services.AddScoped<IPayIncreaseRepository, EFPayIncreaseRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -5,14 +5,13 @@ namespace StudentEmployeeCollection.Models
 {
     public class PositionType
     {
+        public PositionType()
+        {
+
+        }
         [Key]
         [Required]
         public int PositionTypeID { get; set; }
-
-        public string PositionTypes { get; set; }
-
-        public Decimal PayRate { get; set; }
-
-        public byte NameChangeComp { get; set; }
+        public string PositionName { get; set; }
     }
 }
