@@ -10,6 +10,10 @@
 
 @*@model List<StudentEmployeeDbContext>*@
 
+    <form method="post" asp-controller="Home" asp-action="ExportToCSVStudent"> 
+        <input type="submit" value="Export To CSV" color="black"/>
+    </form>
+
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
         <tr>
@@ -30,6 +34,7 @@
             <th>Submitted E-Form</th>
             <th>Submission Date</th>
             <th>Notes</th>
+
         </tr>
     </thead>
     <tbody>
@@ -49,9 +54,9 @@
                 <td>@s.Phone </td>
                 <td>@s.BYUName </td>
                 <td>@s.PayGradTuition</td>
-                <td>@s.Notes </td>
                 <td>@s.SubmittedEForm </td>
                 <td>@s.SubmissionDate </td>
+                <td>@s.Notes </td>
             </tr>
         }
 

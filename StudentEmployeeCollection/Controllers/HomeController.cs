@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -46,7 +47,20 @@ namespace StudentEmployeeCollection.Controllers
             return View(students);
         }
 
-        [HttpGet]
+
+        public IActionResult ExportToCSVStudent()
+        {
+            var builder = new StringBuilder();
+            builder.AppendLine("BYUID, First Name, Last Name, International, Gender, Email, Semester, Year, Program Year, Phone Number, Pay Grad Tuition?, Submitted E-Form, Submission Date, Notes");
+            foreach(var student in _repoStudent.Student)
+                // OR change it to just say 'Student'
+            {
+                builder.AppendLine($"{student.BYUID}, {student.FirstName}, {student.LastName}, {student.International}, {student.Gender}, {student.EmailAddress}, {student.Semester}, {student.Year}, {student.ProgramYear}, {student.Phone}, {student.PayGradTuition}, {student.SubmittedEForm}, {student.SubmissionDate}, {student.Notes},  ");
+            }
+            return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "users.csv");
+        }
+
+
         public IActionResult Create()
         {
             //ViewBag.Students = Student.Position.ToList();
