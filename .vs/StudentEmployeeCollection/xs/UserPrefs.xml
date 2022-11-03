@@ -1,13 +1,11 @@
 ﻿<Properties StartupConfiguration="{C590020D-D233-4AB5-82DC-4ABC275650A1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StudentEmployeeCollection/Models/Position.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="StudentEmployeeCollection/appsettings.json">
     <Files>
-      <File FileName="StudentEmployeeCollection/Models/Student.cs" Line="31" Column="1" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Controllers/HomeController.cs" Line="107" Column="1" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Views/Home/EditForm.cshtml" Line="89" Column="37" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Models/Supervisor.cs" Line="1" Column="1" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Models/StudentEmployeeDbContext.cs" Line="14" Column="78" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Views/Home/AddPositionToStudent.cshtml" Line="60" Column="50" NotebookId="1" />
-      <File FileName="StudentEmployeeCollection/Models/StudentPositionType.cs" Line="16" Column="27" NotebookId="2" />
+      <File FileName="StudentEmployeeCollection/Views/Home/EditForm.cshtml" Line="86" Column="16" />
+      <File FileName="StudentEmployeeCollection/Controllers/HomeController.cs" />
+      <File FileName="StudentEmployeeCollection/Views/Home/Index.cshtml" Line="42" Column="24" />
+      <File FileName="StudentEmployeeCollection/Models/EFStudentRepository.cs" />
+      <File FileName="StudentEmployeeCollection/appsettings.json" Line="14" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -18,18 +16,19 @@
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Migrations" expanded="True" />
-              <Node name="Models" expanded="True">
-                <Node name="Position.cs" selected="True" />
-              </Node>
+              <Node name="Models" expanded="True" />
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
                 <Node name="Home" expanded="True" />
                 <Node name="Shared" expanded="True" />
               </Node>
+              <Node name="appsettings.json" expanded="True" selected="True" />
             </Node>
           </Node>
         </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

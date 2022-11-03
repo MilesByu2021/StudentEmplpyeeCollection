@@ -85,6 +85,7 @@
     <table class='table table-striped'>
         <thead>
             <tr>
+                <td></td>
                 <td>Position ID</td>
                 <td>Position Type</td>
                 <td>Supervisor</td>
@@ -103,6 +104,7 @@
             @foreach (Position p in Model.Positions)
             {
             <tr>
+                <td><a asp-controller="Home" asp-action="DeletePosition" asp-route-positionid="@p.PositionID" class="btn btn-info">Delete</a></td>
                 <td>@p.PositionID</td>
                 <td>@p.PositionType.PositionName</td>
                 <td>@p.Supervisor.FirstName @p.Supervisor.LastName</td>

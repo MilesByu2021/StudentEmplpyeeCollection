@@ -942,19 +942,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/alexisjane/.nuget/packages/": {}
+    "/Users/milesleung/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
+      "projectUniqueName": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
       "projectName": "StudentEmployeeCollection",
-      "projectPath": "/Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
-      "packagesPath": "/Users/alexisjane/.nuget/packages/",
-      "outputPath": "/Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/",
+      "projectPath": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/StudentEmployeeCollection.csproj",
+      "packagesPath": "/Users/milesleung/.nuget/packages/",
+      "outputPath": "/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/alexisjane/.nuget/NuGet/NuGet.Config"
+        "/Users/milesleung/.config/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
