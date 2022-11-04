@@ -111,9 +111,30 @@ namespace StudentEmployeeCollection.Controllers
         }
 
         //Delete Student
-        public IActionResult Delete()
+        public IActionResult Delete(Student s)
         {
-            return View();
+            var student = _repoStudent.Student
+                .Where(x => x.BYUID == s.BYUID)
+                .FirstOrDefault();
+
+            _repoStudent.DeleteStudent(student);
+
+            return RedirectToAction("Index");
+        }
+
+        //Delete Position
+        public IActionResult DeletePosition(Position p)
+        {
+            var position = _repoPosition.Position
+                .Where(x => x.PositionID == p.PositionID)
+                .FirstOrDefault();
+
+            _repoPosition.DeletePosition(position);
+
+            return RedirectToAction("EditForm",new RouteValueDictionary(
+                    new { controller = "Home", action = "EditForm", byuid = position.BYUID }
+                )
+            );
         }
 
     }

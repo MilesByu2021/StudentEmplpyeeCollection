@@ -238,3 +238,5 @@ C:/Users/dalli/Source/Repos/StudentEmplpyeeCollection/StudentEmployeeCollection/
 /Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.pdb
 /Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.genruntimeconfig.cache
 /Users/alexisjane/BYU/IS 405/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/Razor/Views/Home/AddPositionToStudent.cshtml.g.cs
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/StudentEmployeeCollection.csproj.AssemblyReference.cache
+/Users/milesleung/Documents/GitHub/StudentEmplpyeeCollection/StudentEmployeeCollection/obj/Debug/netcoreapp3.1/Razor/Views/Home/AddPositionToStudent.cshtml.g.cs
