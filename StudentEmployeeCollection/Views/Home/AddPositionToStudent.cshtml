@@ -38,9 +38,12 @@
     </div>
     <div class="mb-2">
         <label name="AuthToWorkReceive" class="form-label">Authorization To Work Received</label>
-        <input asp-for="AuthToWorkReceive" type="checkbox" class="form-control" name="AuthToWorkReceive">
+        <br />
+        <input asp-for="AuthToWorkReceive" type="checkbox" style="float:left; margin:5px 0px; width:75px" class="form-control" name="AuthToWorkReceive">
     </div>
+    <br />
     <div class="mb-2">
+        <br />
         <label name="AuthToWorkMailSentDate" class="form-label">Authorization To Work Email Sent Date</label>
         <input asp-for="AuthToWorkMailSentDate" type="date" class="form-control" name="AuthToWorkMailSentDate">
     </div>
@@ -63,5 +66,8 @@
         <button type="submit" class="btn btn-success">Submit</button>
     </div>
 </form>
+<a asp-controller="Home" asp-action="Index" class="btn btn-info">
+    Cancel    
+</a>
 <p>@Context.Request.RouteValues["byuid"]
 </p>
