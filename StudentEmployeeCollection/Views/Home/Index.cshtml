@@ -4,11 +4,40 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+
 </div>
 
-@model List<Student>
-
+@model IQueryable<Student>
 @*@model List<StudentEmployeeDbContext>*@
+
+<br />
+<br />
+<label>Select Semester</label>
+<form method="POST" asp-controller="Home" asp-action="Index">
+    <select name="filter">
+        <option value="All" name="filter">All</option>
+        <option value="Fall" name="filter">Fall 2021</option>
+        <option value="Winter" name="filter">Winter 2022</option>
+        <option value="Spring" name="filter">Spring/Summer 2022</option>
+        <option value="Fall" name="filter">Fall 2022</option>
+    </select>
+    <input type="submit" />
+</form>
+<br /><br />
+      <label>Select a Supervisor</label>
+      <form asp-controller="HomeController" asp-action="Index" method="post">
+          <select name="ChooseSupervisor">
+              <option value="all">All</option>
+              <option value="Anderson">Greg Anderson</option>
+              <option value="kettles">Degan Kettles</option>
+              <option value="wells">Taylor Wells</option>
+              <option value="allen">Gove Allen</option>
+          </select>
+          <input type="submit" />
+      </form>
+      <br /><br />
+
+
 
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
@@ -38,8 +67,10 @@
         {
             <tr>
                 <td><a asp-controller="Home" asp-action="EditForm" asp-route-byuid="@s.BYUID" class="btn btn-info">Edit</a></td>
-                <td><a asp-controller="Home" asp-action="Delete" asp-route-byuid="@s.BYUID" class="btn btn-info"
-                       onclick="return confirm('Please go to the edit view to delete all @s.BYUName position first. (Click OK if all position is deleted)')">Delete</a></td>
+                <td>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-byuid="@s.BYUID" class="btn btn-info"
+                       onclick="return confirm('Please go to the edit view to delete all @s.BYUName position first. (Click OK if all positions are deleted)')">Delete</a>
+                </td>
                 <td>@s.BYUID</td>
                 <td>@s.FirstName </td>
                 <td>@s.LastName </td>
@@ -55,6 +86,12 @@
                 <td>@s.Notes </td>
                 <td>@s.SubmittedEForm </td>
                 <td>@s.SubmissionDate </td>
+                <td>
+                    @foreach (Position p in s.Positions)
+                    {
+                        @p.Supervisor.LastName
+                    }
+                </td>
             </tr>
         }
 

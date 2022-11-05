@@ -7,11 +7,20 @@
     <Watch Include="**\*.cshtml;*.razor;*.js;*.css" Exclude="**\obj\**\*;bin\**\*" />
   </ItemGroup>
   <ItemGroup>
+    <Content Remove="Views\Home\Supervisor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="Microsoft.EntityFrameworkCore" />
     <None Remove="Microsoft.EntityFrameworkCore.Design" />
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Models\" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+  </ItemGroup>
+  <ItemGroup>
+    <Watch Remove="Views\Home\Supervisor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Views\Home\Supervisor.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.22" />

@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "Supervisor Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+</div>
+
+@model List<Supervisor>
+@*@model List<StudentEmployeeDbContext>*@
+
+<table class="table table-bordered table-hover">
+    <thead class="thead-light">
+        <tr>
+            @*Student Table*@
+            <th></th>
+            <th></th>
+            <th>BYU ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>International</th>
+            <th>Gender</th>
+            <th>Email</th>
+            <th>Semester</th>
+            <th>Year</th>
+            <th>Program Year</th>
+            <th>Phone</th>
+            <th>BYU Name</th>
+            <th>Pay Grad Tuition</th>
+            <th>Submitted E-Form</th>
+            <th>Submission Date</th>
+            <th>Notes</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Supervisor s in Model)
+        {
+        <tr>
+            <td><a asp-controller="Home" asp-action="EditForm" asp-route-byuid="@s.BYUID" class="btn btn-info">Edit</a></td>
+            <td>
+                <a asp-controller="Home" asp-action="Delete" asp-route-byuid="@s.BYUID" class="btn btn-info"
+                   onclick="return confirm('Please go to the edit view to delete all @s.BYUName position first. (Click OK if all position is deleted)')">Delete</a>
+            </td>
+            <td>@s.FirstName</td>
+            <td>@s.LastName</td>
+        </tr>
+        }
+
+    </tbody>
+</table>

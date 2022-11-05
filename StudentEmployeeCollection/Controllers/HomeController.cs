@@ -35,15 +35,43 @@ namespace StudentEmployeeCollection.Controllers
             _repoPayIncrease = tempPI;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
-            var students = _repoStudent.Student
+                var students = _repoStudent.Student
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.Supervisor)
+                .Include(s => s.Positions)
+                    .ThenInclude(p => p.PositionType);
+
+                return View(students);
+        }
+
+        [HttpPost]
+        public IActionResult Index([FromForm] string filter, [FromForm] string filter2)
+        {
+    //        select sp.firstname, sp.lastname from student s
+
+    //inner join position p on s.BYUID = p.BYUID
+
+    //inner join supervisor sp on p.SupervisorId = sp.supervisorId
+
+            IQueryable<Student> bigQuery;
+
+            //bigQuery = from student in _repoStudent.Student where (student.Semester == filter) select student;
+
+            //bigQuery = from student in _repoStudent.Student
+            //           join pos in _repoPosition.Position on student.BYUID equals pos.BYUID
+            //         join sup in _repoSupervisor.Supervisor on pos.SupervisorID equals sup.SupervisorID
+            //       where student.Semester == filter select student;
+            bigQuery = _repoStudent.Student
                 .Include(s => s.Positions)
                     .ThenInclude(p => p.Supervisor)
                 .Include(s => s.Positions)
                     .ThenInclude(p => p.PositionType)
-                .ToList();
-            return View(students);
+                .Where(s => s.Semester == filter);
+
+            return View(bigQuery);
         }
 
         [HttpGet]
