@@ -38,17 +38,17 @@ namespace StudentEmployeeCollection.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-                var students = _repoStudent.Student
-                .Include(s => s.Positions)
-                    .ThenInclude(p => p.Supervisor)
-                .Include(s => s.Positions)
-                    .ThenInclude(p => p.PositionType);
+            var students = _repoStudent.Student
+            .Include(s => s.Positions)
+                .ThenInclude(p => p.Supervisor)
+            .Include(s => s.Positions)
+                .ThenInclude(p => p.PositionType);
 
-                return View(students);
+            return View(students);
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm] string filter, [FromForm] string filter2)
+        public IActionResult Index([FromForm] string filter)
         {
     //        select sp.firstname, sp.lastname from student s
 
@@ -69,7 +69,7 @@ namespace StudentEmployeeCollection.Controllers
                     .ThenInclude(p => p.Supervisor)
                 .Include(s => s.Positions)
                     .ThenInclude(p => p.PositionType)
-                .Where(s => s.Semester == filter);
+                .Where(s => s.Semester == filter || s.Positions.First().Supervisor.LastName == filter);
 
             return View(bigQuery);
         }

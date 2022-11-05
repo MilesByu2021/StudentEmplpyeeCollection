@@ -25,13 +25,13 @@
 </form>
 <br /><br />
       <label>Select a Supervisor</label>
-      <form asp-controller="HomeController" asp-action="Index" method="post">
-          <select name="ChooseSupervisor">
-              <option value="all">All</option>
-              <option value="Anderson">Greg Anderson</option>
-              <option value="kettles">Degan Kettles</option>
-              <option value="wells">Taylor Wells</option>
-              <option value="allen">Gove Allen</option>
+      <form method="POST" asp-controller="Home" asp-action="Index">
+          <select name="filter">
+              <option value="all" name="filter">All</option>
+              <option value="Anderson" name="filter">Greg Anderson</option>
+              <option value="kettles" name="filter">Degan Kettles</option>
+              <option value="wells" name="filter">Taylor Wells</option>
+              <option value="allen" name="filter">Gove Allen</option>
           </select>
           <input type="submit" />
       </form>
