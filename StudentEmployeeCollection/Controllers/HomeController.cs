@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using StudentEmployeeCollection.Models;
+using StudentEmployeeCollection.Models.ViewModels;
 
 namespace StudentEmployeeCollection.Controllers
 {
@@ -38,40 +39,138 @@ namespace StudentEmployeeCollection.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var students = _repoStudent.Student
-            .Include(s => s.Positions)
-                .ThenInclude(p => p.Supervisor)
-            .Include(s => s.Positions)
-                .ThenInclude(p => p.PositionType);
+            List<string> semesters = _repoStudent.GetSemesters();
+            ViewBag.Semesters = semesters.Select(s =>
+                new SelectListItem()
+                {
+                    Text = s,
+                    Value = s,
+                });
+            List<int> years = _repoStudent.GetYears();
+            ViewBag.Years = years.Select(y =>
+                new SelectListItem()
+                {
+                    Text = y.ToString(),
+                    Value = y.ToString(),
+                });
+            List<Supervisor> supervisors = _repoSupervisor.Supervisor.ToList();
+            ViewBag.Supervisors = supervisors.Select(s =>
+                new SelectListItem()
+                {
+                    Text = s.FirstName + " " + s.LastName,
+                    Value = s.SupervisorID.ToString()
+                });
+            List<Position> positions = _repoPosition.GetPositionsQuery().ToList();
+            ViewBag.Filters = new PositionsFilterForm();
 
-            return View(students);
+            return View(positions);
+        }
+
+        public class PositionsFilterForm
+        {
+            public string SemesterFilter { get; set; }
+            public string YearFilter { get; set; }
+            public string SupervisorFilter { get; set; }
+            public string GroupByFilter { get; set; }
         }
 
         [HttpPost]
-        public IActionResult Index([FromForm] string filter)
+        public IActionResult Index([FromForm] PositionsFilterForm form)
         {
-    //        select sp.firstname, sp.lastname from student s
+            List<string> semesters = _repoStudent.GetSemesters();
+            ViewBag.Semesters = semesters.Select(s =>
+                new SelectListItem()
+                {
+                    Text = s,
+                    Value = s,
+                    Selected = form.SemesterFilter == s
+                });
+            List<int> years = _repoStudent.GetYears();
+            ViewBag.Years = years.Select(y =>
+                new SelectListItem()
+                {
+                    Text = y.ToString(),
+                    Value = y.ToString(),
+                    Selected = form.YearFilter == y.ToString()
+                });
+            List<Supervisor> supervisors = _repoSupervisor.Supervisor.ToList();
+            ViewBag.Supervisors = supervisors.Select(s =>
+                new SelectListItem()
+                {
+                    Text = s.FirstName + " " + s.LastName,
+                    Value = s.SupervisorID.ToString(),
+                    Selected = form.SupervisorFilter == s.SupervisorID.ToString()
+                });
 
-    //inner join position p on s.BYUID = p.BYUID
+            IQueryable<Position> query = _repoPosition.GetPositionsQuery();
+            if (!string.IsNullOrEmpty(form.SemesterFilter))
+                query = query.Where(p => p.Student.Semester == form.SemesterFilter);
+            if (!string.IsNullOrEmpty(form.YearFilter))
+                query = query.Where(p => p.Student.Year == int.Parse(form.YearFilter));
+            if (!string.IsNullOrEmpty(form.SupervisorFilter))
+                query = query.Where(p => p.SupervisorID == int.Parse(form.SupervisorFilter));
+            List<Position> positions = query.ToList();
+            ViewBag.Filters = form;
 
-    //inner join supervisor sp on p.SupervisorId = sp.supervisorId
+            // if a group by filter is set, then render the GroupBy View instead of the this index one
+            if (!string.IsNullOrEmpty(form.GroupByFilter))
+            {
+                List<PositionListViewModel> vms = new List<PositionListViewModel>();
+                if (form.GroupByFilter == "Semester")
+                {
+                    foreach (Position p in positions)
+                    {
+                        PositionListViewModel alreadyContainsGroup = vms.FirstOrDefault(vm => vm.Group == p.Student.Semester);
+                        if (alreadyContainsGroup != null)
+                        {
+                            alreadyContainsGroup.Positions.Add(p);
+                        }
+                        else
+                        {
+                            PositionListViewModel newVm = new PositionListViewModel(p.Student.Semester, p);
+                            vms.Add(newVm);
+                        }
+                    }
+                }
 
-            IQueryable<Student> bigQuery;
+                if (form.GroupByFilter == "Year")
+                {
+                    foreach (Position p in positions)
+                    {
+                        PositionListViewModel alreadyContainsGroup = vms.FirstOrDefault(vm => vm.Group == p.Student.Year.ToString());
+                        if (alreadyContainsGroup != null)
+                        {
+                            alreadyContainsGroup.Positions.Add(p);
+                        }
+                        else
+                        {
+                            PositionListViewModel newVm = new PositionListViewModel(p.Student.Year.ToString(), p);
+                            vms.Add(newVm);
+                        }
+                    }
+                }
 
-            //bigQuery = from student in _repoStudent.Student where (student.Semester == filter) select student;
+                if (form.GroupByFilter == "Supervisor")
+                {
+                    foreach (Position p in positions)
+                    {
+                        PositionListViewModel alreadyContainsGroup = vms.FirstOrDefault(vm => vm.Group == p.Supervisor.FirstName + " " + p.Supervisor.LastName);
+                        if (alreadyContainsGroup != null)
+                        {
+                            alreadyContainsGroup.Positions.Add(p);
+                        }
+                        else
+                        {
+                            PositionListViewModel newVm = new PositionListViewModel(p.Supervisor.FirstName + " " + p.Supervisor.LastName, p);
+                            vms.Add(newVm);
+                        }
+                    }
+                }
 
-            //bigQuery = from student in _repoStudent.Student
-            //           join pos in _repoPosition.Position on student.BYUID equals pos.BYUID
-            //         join sup in _repoSupervisor.Supervisor on pos.SupervisorID equals sup.SupervisorID
-            //       where student.Semester == filter select student;
-            bigQuery = _repoStudent.Student
-                .Include(s => s.Positions)
-                    .ThenInclude(p => p.Supervisor)
-                .Include(s => s.Positions)
-                    .ThenInclude(p => p.PositionType)
-                .Where(s => s.Semester == filter || s.Positions.First().Supervisor.LastName == filter);
+                return View("GroupBy", vms);
+            }
 
-            return View(bigQuery);
+            return View(positions);
         }
 
         [HttpGet]

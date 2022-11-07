@@ -9,5 +9,6 @@ namespace StudentEmployeeCollection.Models
         public void CreatePosition(Position position);
         public void SavePosition(Position position);
         public void DeletePosition(Position position);
+        public IQueryable<Position> GetPositionsQuery();
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace StudentEmployeeCollection.Models
@@ -12,5 +13,9 @@ namespace StudentEmployeeCollection.Models
         public void SaveStudent(Student s);
 
         public void DeleteStudent(Student s);
+
+        public IQueryable<Student> GetStudentsQuery();
+        public List<string> GetSemesters();
+        public List<int> GetYears();
     }
 }
