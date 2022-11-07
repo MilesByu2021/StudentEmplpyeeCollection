@@ -1,11 +1,24 @@
 ﻿<Properties StartupConfiguration="{C590020D-D233-4AB5-82DC-4ABC275650A1}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="StudentEmployeeCollection/appsettings.json">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="StudentEmployeeCollection/Views/Home/EditForm.cshtml" Line="86" Column="16" />
-      <File FileName="StudentEmployeeCollection/Controllers/HomeController.cs" />
-      <File FileName="StudentEmployeeCollection/Views/Home/Index.cshtml" Line="42" Column="24" />
-      <File FileName="StudentEmployeeCollection/Models/EFStudentRepository.cs" />
-      <File FileName="StudentEmployeeCollection/appsettings.json" Line="14" Column="2" />
+      <File FileName="StudentEmployeeCollection/Views/Home/EditForm.cshtml" Line="54" Column="53" />
+      <File FileName="StudentEmployeeCollection/Models/EFStudentRepository.cs" Line="39" Column="20" />
+      <File FileName="StudentEmployeeCollection/Views/Home/AddPositionToStudent.cshtml" Line="22" Column="41" />
+      <File FileName="StudentEmployeeCollection/Controllers/HomeController.cs" Line="170" Column="45" />
+      <File FileName="StudentEmployeeCollection/Models/IStudentRepository.cs" Line="19" Column="34" />
+      <File FileName="StudentEmployeeCollection/Models/IPositionRepository.cs" Line="12" Column="57" />
+      <File FileName="StudentEmployeeCollection/Models/ViewModels/StudentListViewModel.cs" Line="6" Column="39" />
+      <File FileName="StudentEmployeeCollection/Models/EFPositionRepository.cs" Line="40" Column="47" />
+      <File FileName="StudentEmployeeCollection/Views/Home/GroupBy.cshtml" Line="19" Column="13" />
+      <File FileName="StudentEmployeeCollection/Views/_ViewImports.cshtml" Line="3" Column="51" />
+      <File FileName="StudentEmployeeCollection/Models/Student.cs" Line="24" Column="18" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Models/Position.cs" Line="36" Column="5" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Models/Supervisor.cs" Line="21" Column="1" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/appsettings.json" Line="12" Column="90" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Models/StudentEmployeeDbContext.cs" Line="1" Column="1" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Views/Home/Index.cshtml" Line="16" Column="51" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Views/Home/Create.cshtml" Line="34" Column="11" NotebookId="1" />
+      <File FileName="StudentEmployeeCollection/Views/Shared/_Layout.cshtml" Line="33" Column="44" NotebookId="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,19 +29,20 @@
                 <Node name="PackageDependencies" expanded="True" />
               </Node>
               <Node name="Controllers" expanded="True" />
-              <Node name="Models" expanded="True" />
+              <Node name="Models" expanded="True">
+                <Node name="ViewModels" expanded="True" />
+              </Node>
               <Node name="Properties" expanded="True" />
               <Node name="Views" expanded="True">
-                <Node name="Home" expanded="True" />
+                <Node name="Home" expanded="True">
+                  <Node name="GroupBy.cshtml" selected="True" />
+                </Node>
                 <Node name="Shared" expanded="True" />
               </Node>
-              <Node name="appsettings.json" expanded="True" selected="True" />
+              <Node name="appsettings.json" expanded="True" />
             </Node>
           </Node>
         </State>
-      </Pad>
-      <Pad Id="MonoDevelop.Debugger.WatchPad">
-        <State />
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>

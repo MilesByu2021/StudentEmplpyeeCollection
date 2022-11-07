@@ -15,6 +15,7 @@
     <None Remove="Microsoft.EntityFrameworkCore.Tools" />
     <None Remove="Models\" />
     <None Remove="Pomelo.EntityFrameworkCore.MySql" />
+    <None Remove="Models\ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Watch Remove="Views\Home\Supervisor.cshtml" />
@@ -33,5 +34,8 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.2.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\ViewModels\" />
   </ItemGroup>
 </Project>

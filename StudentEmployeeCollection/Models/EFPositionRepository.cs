@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentEmployeeCollection.Models
 {
@@ -29,6 +30,14 @@ namespace StudentEmployeeCollection.Models
         {
             _context.Remove(position);
             _context.SaveChanges();
+        }
+
+        public IQueryable<Position> GetPositionsQuery()
+        {
+            return _context.Position
+                .Include(p => p.Student)
+                .Include(p => p.Supervisor)
+                .Include(p => p.PositionType);
         }
     }
 }

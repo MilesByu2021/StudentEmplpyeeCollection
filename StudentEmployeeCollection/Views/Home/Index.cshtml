@@ -7,35 +7,60 @@
 
 </div>
 
-@model IQueryable<Student>
-@*@model List<StudentEmployeeDbContext>*@
+@model List<Position>
 
 <br />
 <br />
-<label>Select Semester</label>
-<form method="POST" asp-controller="Home" asp-action="Index">
-    <select name="filter">
-        <option value="All" name="filter">All</option>
-        <option value="Fall" name="filter">Fall 2021</option>
-        <option value="Winter" name="filter">Winter 2022</option>
-        <option value="Spring" name="filter">Spring/Summer 2022</option>
-        <option value="Fall" name="filter">Fall 2022</option>
-    </select>
-    <input type="submit" />
-</form>
-<br /><br />
-      <label>Select a Supervisor</label>
-      <form method="POST" asp-controller="Home" asp-action="Index">
-          <select name="filter">
-              <option value="all" name="filter">All</option>
-              <option value="Anderson" name="filter">Greg Anderson</option>
-              <option value="kettles" name="filter">Degan Kettles</option>
-              <option value="wells" name="filter">Taylor Wells</option>
-              <option value="allen" name="filter">Gove Allen</option>
-          </select>
-          <input type="submit" />
-      </form>
-      <br /><br />
+<div>
+    <label><b>Filters:</b></label>
+    <form method="POST" asp-controller="Home" asp-action="Index">
+        <div class="my-2">
+            <label>Select Semester</label>
+            <select name="SemesterFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem s in ViewBag.Semesters)
+                {
+                    <option value="@s.Value" selected="@s.Selected">@s.Text</option>
+                }
+            </select>
+        </div>
+        <div class="my-2">
+            <label>Select Year</label>
+            <select name="YearFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem y in ViewBag.Years)
+                {
+                    <option value="@y.Value" selected="@y.Selected">@y.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="my-2">
+            <label>Select a Supervisor</label>
+            <select name="SupervisorFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem supervisor in ViewBag.Supervisors)
+                {
+                    <option value="@supervisor.Value" selected="@supervisor.Selected">@supervisor.Text</option>
+                }
+            </select>
+        </div>
+
+        <br />
+        <div class="my-2">
+            <label>Group By</label>
+            <select name="GroupByFilter">
+                <option value="">None</option>
+                <option value="Semester">Semester</option>
+                <option value="Year">Year</option>
+                <option value="Supervisor">Supervisor</option>
+            </select>
+        </div>
+        <input type="submit" />
+    </form>
+</div>
+<br />
+<br />
 
 
 
@@ -60,38 +85,34 @@
             <th>Submitted E-Form</th>
             <th>Submission Date</th>
             <th>Notes</th>
+            <th>Supervisor</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (Student s in Model)
+        @foreach (Position p in Model)
         {
             <tr>
-                <td><a asp-controller="Home" asp-action="EditForm" asp-route-byuid="@s.BYUID" class="btn btn-info">Edit</a></td>
+                <td><a asp-controller="Home" asp-action="EditForm" asp-route-byuid="@p.Student.BYUID" class="btn btn-info">Edit</a></td>
                 <td>
-                    <a asp-controller="Home" asp-action="Delete" asp-route-byuid="@s.BYUID" class="btn btn-info"
-                       onclick="return confirm('Please go to the edit view to delete all @s.BYUName position first. (Click OK if all positions are deleted)')">Delete</a>
+                    <a asp-controller="Home" asp-action="Delete" asp-route-byuid="@p.Student.BYUID" class="btn btn-info"
+                       onclick="return confirm('Please go to the edit view to delete all @p.Student.BYUName position first. (Click OK if all positions are deleted)')">Delete</a>
                 </td>
-                <td>@s.BYUID</td>
-                <td>@s.FirstName </td>
-                <td>@s.LastName </td>
-                <td>@s.International </td>
-                <td>@s.Gender </td>
-                <td>@s.EmailAddress</td>
-                <td>@s.Semester</td>
-                <td>@s.Year </td>
-                <td>@s.ProgramYear</td>
-                <td>@s.Phone </td>
-                <td>@s.BYUName </td>
-                <td>@s.PayGradTuition</td>
-                <td>@s.Notes </td>
-                <td>@s.SubmittedEForm </td>
-                <td>@s.SubmissionDate </td>
-                <td>
-                    @foreach (Position p in s.Positions)
-                    {
-                        @p.Supervisor.LastName
-                    }
-                </td>
+                <td>@p.Student.BYUID</td>
+                <td>@p.Student.FirstName </td>
+                <td>@p.Student.LastName </td>
+                <td>@p.Student.International </td>
+                <td>@p.Student.Gender </td>
+                <td>@p.Student.EmailAddress</td>
+                <td>@p.Student.Semester</td>
+                <td>@p.Student.Year </td>
+                <td>@p.Student.ProgramYear</td>
+                <td>@p.Student.Phone </td>
+                <td>@p.Student.BYUName </td>
+                <td>@p.Student.PayGradTuition</td>
+                <td>@p.Student.SubmittedEForm </td>
+                <td>@p.Student.SubmissionDate </td>
+                <td>@p.Student.Notes </td>
+                <td>@p.Supervisor.LastName</td>
             </tr>
         }
 

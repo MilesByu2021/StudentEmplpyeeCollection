@@ -1,0 +1,128 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+
+</div>
+
+@model List<PositionListViewModel>
+
+<br />
+<br />
+<div>
+    <label>
+        <h3>
+            <b>Filters:</b>
+        </h3>
+    </label>
+    <form method="POST" asp-controller="Home" asp-action="Index">
+        <div class="my-2">
+            <label>Select Semester</label>
+            <select name="SemesterFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem s in ViewBag.Semesters)
+                {
+                    <option value="@s.Value" selected="@s.Selected">@s.Text</option>
+                }
+            </select>
+        </div>
+        <div class="my-2">
+            <label>Select Year</label>
+            <select name="YearFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem y in ViewBag.Years)
+                {
+                    <option value="@y.Value" selected="@y.Selected">@y.Text</option>
+                }
+            </select>
+        </div>
+
+        <div class="my-2">
+            <label>Select a Supervisor</label>
+            <select name="SupervisorFilter">
+                <option value="">All</option>
+                @foreach (SelectListItem supervisor in ViewBag.Supervisors)
+                {
+                    <option value="@supervisor.Value" selected="@supervisor.Selected">@supervisor.Text</option>
+                }
+            </select>
+        </div>
+
+        <br />
+        <div class="my-2">
+            <label>Group By</label>
+            <select name="GroupByFilter">
+                <option value="">None</option>
+                <option value="Semester" selected="@(ViewBag.Filters.GroupByFilter == "Semester")">Semester</option>
+                <option value="Year" selected="@(ViewBag.Filters.GroupByFilter == "Year")">Year</option>
+                <option value="Supervisor" selected="@(ViewBag.Filters.GroupByFilter == "Supervisor")">Supervisor</option>
+            </select>
+        </div>
+        <input type="submit" />
+    </form>
+</div>
+<br />
+<br />
+
+
+@foreach (PositionListViewModel vm in Model)
+{
+    <h5>@vm.Group</h5>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-light">
+            <tr>
+                @*Student Table*@
+                <th></th>
+                <th></th>
+                <th>BYU ID</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>International</th>
+                <th>Gender</th>
+                <th>Email</th>
+                <th>Semester</th>
+                <th>Year</th>
+                <th>Program Year</th>
+                <th>Phone</th>
+                <th>BYU Name</th>
+                <th>Pay Grad Tuition</th>
+                <th>Submitted E-Form</th>
+                <th>Submission Date</th>
+                <th>Notes</th>
+                <th>Supervisor</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Position p in vm.Positions)
+            {
+                <tr>
+                    <td><a asp-controller="Home" asp-action="EditForm" asp-route-byuid="@p.Student.BYUID" class="btn btn-info">Edit</a></td>
+                    <td>
+                        <a asp-controller="Home" asp-action="Delete" asp-route-byuid="@p.Student.BYUID" class="btn btn-info"
+                           onclick="return confirm('Please go to the edit view to delete all @p.Student.BYUName position first. (Click OK if all positions are deleted)')">Delete</a>
+                    </td>
+                    <td>@p.Student.BYUID</td>
+                    <td>@p.Student.FirstName </td>
+                    <td>@p.Student.LastName </td>
+                    <td>@p.Student.International </td>
+                    <td>@p.Student.Gender </td>
+                    <td>@p.Student.EmailAddress</td>
+                    <td>@p.Student.Semester</td>
+                    <td>@p.Student.Year </td>
+                    <td>@p.Student.ProgramYear</td>
+                    <td>@p.Student.Phone </td>
+                    <td>@p.Student.BYUName </td>
+                    <td>@p.Student.PayGradTuition</td>
+                    <td>@p.Student.SubmittedEForm </td>
+                    <td>@p.Student.SubmissionDate </td>
+                    <td>@p.Student.Notes </td>
+                    <td>@p.Supervisor.LastName</td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
