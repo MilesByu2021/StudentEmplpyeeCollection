@@ -4,7 +4,14 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
+    <h3 style="font-weight:lighter">
+        Below is the table of current student employees working withinin the Information Systems Department.
+    </h3>
+    <h5 style="font-weight:lighter">
+        To view more informaiton about a particular student, please select the 'Edit' button to the left of their name.
+        This will show their current information in an editable form, along with their current positions and relevant data.
 
+    </h5>
 </div>
 
 @model List<Position>
@@ -12,10 +19,10 @@
 <br />
 <br />
 <div>
-    <label><b>Filters:</b></label>
+    <h3>Filters:</h3>
     <form method="POST" asp-controller="Home" asp-action="Index">
         <div class="my-2">
-            <label>Select Semester</label>
+            <label style="font-size:larger">Select Semester</label>
             <select name="SemesterFilter">
                 <option value="">All</option>
                 @foreach (SelectListItem s in ViewBag.Semesters)
@@ -25,7 +32,7 @@
             </select>
         </div>
         <div class="my-2">
-            <label>Select Year</label>
+            <label style="font-size:larger">Select Year</label>
             <select name="YearFilter">
                 <option value="">All</option>
                 @foreach (SelectListItem y in ViewBag.Years)
@@ -36,7 +43,7 @@
         </div>
 
         <div class="my-2">
-            <label>Select a Supervisor</label>
+            <label style="font-size:larger">Select a Supervisor</label>
             <select name="SupervisorFilter">
                 <option value="">All</option>
                 @foreach (SelectListItem supervisor in ViewBag.Supervisors)
@@ -46,9 +53,8 @@
             </select>
         </div>
 
-        <br />
         <div class="my-2">
-            <label>Group By</label>
+            <label style="font-size:larger">Group By</label>
             <select name="GroupByFilter">
                 <option value="">None</option>
                 <option value="Semester">Semester</option>
@@ -56,14 +62,19 @@
                 <option value="Supervisor">Supervisor</option>
             </select>
         </div>
-        <input type="submit" />
+        <input type="submit" class="btn btn-info" />
     </form>
 </div>
 <br />
 <br />
 
-
-
+<br />
+<div align="center">
+    <form method="post" asp-controller="Home" asp-action="ExportToCSVStudent"> 
+        <input type="submit" value="Export To CSV" class="btn btn-info"/>
+    </form>
+</div>
+<br />
 <table class="table table-bordered table-hover">
     <thead class="thead-light">
         <tr>
@@ -118,3 +129,7 @@
 
     </tbody>
 </table>
+<br />
+<br />
+
+<iframe title="IS Project" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=5f48579c-abeb-40e7-bbef-2b5fb88871da&autoAuth=true&ctid=61e6eeb3-5fd7-4aaa-ae3c-61e8deb09b79" frameborder="0" allowFullScreen="true"></iframe>

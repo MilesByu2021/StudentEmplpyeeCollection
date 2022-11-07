@@ -1,4 +1,4 @@
-﻿@{
+﻿@*@{
     ViewData["Title"] = "Add Student";
 }
 
@@ -6,7 +6,7 @@
 
 
 
-<h1>Add a Record</h1>
+<h1 class="display-4">Add a Record</h1>
 
 <form method="POST" asp-controller="Home" asp-action="Create" class='form'>
     <div class="mb-2">
@@ -73,6 +73,97 @@
         <input asp-for="SubmissionDate" type="date" class="form-control" name="SubmissionDate">
     </div>
 
+    <div class="mb-2">
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
+</form>*@
+
+
+@{
+    ViewData["Title"] = "Add Student";
+}
+
+@model Student
+
+
+
+<h2 class="display-4">Add a Record</h2>
+
+<form method="POST" asp-controller="Home" asp-action="Create" class='form'>
+    <div class="mb-2">
+        <label name="BYUID" class="form-label" style="font-size:larger">BYU ID</label>
+        <input asp-for="BYUID" type="text" class="form-control" name="BYUID">
+    </div>
+    <div class="mb-2">
+        <label name="FirstName" class="form-label" style="font-size:larger">First Name</label>
+        <input asp-for="FirstName" type="text" class="form-control" name="FirstName">
+    </div>
+    <div class="mb-2">
+        <label name="LastName" class="form-label" style="font-size:larger">Last Name</label>
+        <input asp-for="LastName" type="text" class="form-control" name="LastName">
+    </div>
+    <div class="mb-2">
+        <label name="International" class="form-label" style="font-size:larger">International</label>
+        <br />
+        <input asp-for="International" type="checkbox" style="float:left; margin:5px 0px; width:75px" class="form-control" name="International">
+    </div>
+    <br />
+    <div class="mb-2">
+        <br />
+        <label name="Gender" class="form-label" style="font-size:larger">Gender</label>
+        <br />
+        <input type="radio" id="gender-male" asp-for="Gender" value="Male" />
+        <label for="gender-male" style="font-size:large">Male</label>
+        <input type="radio" id="gender-female" asp-for="Gender" value="Female" />
+        <label for="gender-female" style="font-size:large">Female</label>
+    </div>
+    <div class="mb-2">
+        <label name="EmailAddress" class="form-label" style="font-size:larger">Email Address</label>
+        <input asp-for="EmailAddress" type="text" class="form-control" name="EmailAddress">
+    </div>
+    <div class="mb-2">
+        <label name="Semester" class="form-label" style="font-size:larger">Semester</label>
+        <input asp-for="Semester" type="text" class="form-control" name="Semester">
+    </div>
+    <div class="mb-2">
+        <label name="Year" class="form-label" style="font-size:larger">Year</label>
+        <input asp-for="Year" type="number" class="form-control" name="Year">
+    </div>
+    <div class="mb-2">
+        <label name="ProgramYear" class="form-label" style="font-size:larger">Program Year</label>
+        <input asp-for="ProgramYear" type="text" class="form-control" name="ProgramYear">
+    </div>
+    <div class="mb-2">
+        <label name="Phone" class="form-label" style="font-size:larger">Phone</label>
+        <input asp-for="Phone" type="text" class="form-control" name="Phone">
+    </div>
+    <div class="mb-2">
+        <label name="BYUName" class="form-label" style="font-size:larger">BYU Name</label>
+        <input asp-for="BYUName" type="text" class="form-control" name="BYUName">
+    </div>
+    <div class="mb-2">
+        <label name="PayGradTuition" class="form-label" style="font-size:larger">Pay Grad Tuition</label>
+        <br />
+        <input asp-for="PayGradTuition" type="checkbox" style="float:left; margin:5px 0px; width:75px" class="form-control" name="PayGradTuition">
+    </div>
+    <br />
+    <div class="mb-2">
+        <br />
+        <label name="Notes" class="form-label" style="font-size:larger">Notes</label>
+        <input asp-for="Notes" type="text" class="form-control" name="Notes">
+    </div>
+    <div class="mb-2">
+        <label name="SubmittedEForm" class="form-label" style="font-size:larger">Submitted E-Form</label>
+        <br />
+        <input asp-for="SubmittedEForm" type="checkbox" style="float:left; margin:5px 0px; width:75px" class="form-control" name="SubmittedEForm">
+    </div>
+    <br />
+    <div class="mb-2">
+        <br />
+        <label name="SubmissionDate" class="form-label" style="font-size:larger">Submission Date</label>
+        <input asp-for="SubmissionDate" type="date" class="form-control" name="SubmissionDate">
+    </div>
+    <br />
     <div class="mb-2">
         <button type="submit" class="btn btn-success">Submit</button>
     </div>
